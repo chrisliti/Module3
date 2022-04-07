@@ -11,4 +11,3 @@ transformers
 
 keras
 tensorflow
-pickle
