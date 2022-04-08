@@ -278,7 +278,7 @@ with sentiment:
 # -------------- 
 
 
-clean_data_neutraless = df_twitter[df_twitter['emotion_label'] != 'neutral']
+clean_data_neutraless = df_twitter[df_twitter["emotion_label"] != 'neutral']
 descending_order = clean_data_neutraless['emotion_label'].value_counts().sort_values(ascending=False).index[:10]
     
 
