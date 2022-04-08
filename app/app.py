@@ -347,7 +347,7 @@ with topic_wcloud:
     #st.write(print('\n'))
     #st.write(print('\n'))
 
-  wordcloud_topic = st.selectbox("Topic for wordcloud",options=df_twitter['topic'].unique(),index=df_twitter['topic'].min())
+  wordcloud_topic = st.selectbox("Topic for wordcloud",options=df_twitter['topic'].unique(),index=0)
 
   topic_data = df_twitter[df_twitter['topic']==wordcloud_topic]
 
