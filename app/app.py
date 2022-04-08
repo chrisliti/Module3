@@ -337,7 +337,7 @@ df_twitter['topic'] = topic_results.argmax(axis=1)
 
 topic_wcloud = st.container()
 with topic_wcloud:
-   st.markdown("### Word Frequency by Topics")
+  st.markdown("### Word Frequency by Topics")
 
   st.write("The lists below display the top 15 words for each topic modeled. The lists of words are utilized to label the discovered topics.")
 
