@@ -337,15 +337,21 @@ df_twitter['topic'] = topic_results.argmax(axis=1)
 
 topic_wcloud = st.container()
 with topic_wcloud:
+   st.markdown("### Word Frequency by Topics")
 
+  st.write("The lists below display the top 15 words for each topic modeled. The lists of words are utilized to label the discovered topics.")
 
   word_count = 15
 
   for i,topic in enumerate(LDA.components_):
     st.write("The top  {word_count} word for topic # {i} are:".format(word_count=word_count,i=i))
+    st.write(" ")
     st.write(str([cv.get_feature_names()[index] for index in topic.argsort()[-word_count:]]))
     #st.write(print('\n'))
     #st.write(print('\n'))
+  
+  st.markdown("### Topic Word Cloud")
+  st.write('Select topic from drop down menu below to visualize the most frequent words for the selected topic.')
 
   wordcloud_topic = st.selectbox("Topic for wordcloud",options=df_twitter['topic'].unique(),index=0)
 
@@ -366,6 +372,9 @@ with topic_wcloud:
 st.markdown("## pyLDA visualisation")
 pyLDA_vis = st.container()
 with pyLDA_vis:
+ 
+    st.write("The interactive visualization below helps in interprating the topics discovered by the model fit on the trending tweets data. Click on a topic to visualize the topics word composition and distribution.")
+
       
     html_string = pyLDAvis.prepared_data_to_html(pyLDAvis.sklearn.prepare(LDA, dtm, cv))
 
@@ -379,6 +388,8 @@ with pyLDA_vis:
 st.markdown("## Text generation")
 textgen = st.container()
 with textgen:
+
+  st.write("The section below uses transformers (deep learning models) to generate text for a specified topic of interest. Based on the discovered topics from the topic model, input seed text in the text box below to auto-generate an article.")
 
   ## Text box for user input (seed text)
   user_input = st.text_area("Input Seed Text")
