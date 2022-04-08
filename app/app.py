@@ -56,8 +56,9 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 #df_twitter = pd.read_csv(path+'streamlit_data.csv')
 
 ## drop missing data
+path = os.path.dirname(__file__)
 
-df_twitter = pd.read_csv('streamlit_data.csv')
+df_twitter = pd.read_csv(path+'streamlit_data.csv')
 
 df_twitter = df_twitter[df_twitter['date'].notnull()]
 
@@ -212,7 +213,7 @@ with sentiment:
     
     fig.update(layout_showlegend=False)
     
-    arrow_green = Image.open("arrow_green.png")
+    arrow_green = Image.open(path+"arrow_green.png")
     fig.add_layout_image(
         dict(
             source=arrow_green,
@@ -227,7 +228,7 @@ with sentiment:
             layer="below")
     )
 
-    arrow_red = Image.open("arrow_red.png")
+    arrow_red = Image.open(path+"arrow_red.png")
     fig.add_layout_image(
         dict(
             source=arrow_red,
@@ -254,7 +255,7 @@ with sentiment:
                              bin_size=.05
                              )
     
-    arrow_red = Image.open("arrow_red_flip.png")
+    arrow_red = Image.open(path+"arrow_red_flip.png")
     fig.add_layout_image(
         dict(
             source=arrow_red,
