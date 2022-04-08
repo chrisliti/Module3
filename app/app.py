@@ -390,7 +390,7 @@ with textgen:
   if st.button('Generate text'):
 
     ## Import generatot
-    generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
+    generator = pipeline('text-generation', model='gpt2')
 
     ## Generate text
     text = generator(user_input, do_sample=True, min_length=article_min_word_count)
